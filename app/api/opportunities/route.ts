@@ -35,4 +35,4 @@ export async function POST(request: Request) {
   state.version += 1; await saveState(id, state); return NextResponse.json(state);
 }
 
-async function updateJob(session:string,jobId:string,stage:string,status:"processing"|"failed",error?:string){const latest=await loadState(session);const job=latest.jobs.find((item)=>item.id===jobId);if(job){job.stage=stage;job.status=status;job.updatedAt=new Date().toISOString();job.error=error}await saveState(session,latest)}
+async function updateJob(session:string,jobId:string,stage:string,status:"processing"|"failed",error?:string){const latest=await loadState(session);const job=latest.jobs.find((item)=>item.id===jobId);if(job){job.stage=stage;job.status=status;job.updatedAt=new Date().toISOString();if(error)job.error=error;else delete job.error}await saveState(session,latest)}

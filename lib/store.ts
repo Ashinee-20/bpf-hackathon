@@ -9,7 +9,10 @@ let firestore: Firestore | undefined;
 const dataDir = path.join(process.cwd(), "data");
 
 function db() {
-  firestore ??= new Firestore({ projectId: process.env.GOOGLE_CLOUD_PROJECT });
+  firestore ??= new Firestore({
+    projectId: process.env.GOOGLE_CLOUD_PROJECT,
+    ignoreUndefinedProperties: true,
+  });
   return firestore;
 }
 
