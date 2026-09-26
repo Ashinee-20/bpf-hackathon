@@ -14,7 +14,7 @@ export function demoState(): AppState {
   state.onboardingComplete = true;
   state.onboardingStep = 4;
   state.demo = true;
-  state.profile = { preferredName: "Aarav", university: "National Institute of Technology Karnataka", program: "B.Tech", branch: "Computer Science and Engineering", cohort: "2024", semester: 5, programLength: 8, termStatus: "ongoing", weeklyHours: 5, language: "English", termEnd: "2026-11-30" };
+  state.profile = { preferredName: "Guest", university: "National Institute of Technology Karnataka", program: "B.Tech", branch: "Computer Science and Engineering", cohort: "2024", semester: 5, programLength: 8, termStatus: "ongoing", weeklyHours: 5, language: "English", termEnd: "2026-11-30" };
   state.paths = ["software", "research"].map((id) => { const item = CAREERS.find((c) => c.id === id)!; return { id, label: item.label, active: true, explicit: true, selectedAt: new Date().toISOString() }; });
   state.completedCourses = ["CS201", "CS202", "CS204", "MA201"];
   state.plan = [{ code: "CS301", title: "Database Systems", credits: 4, status: "enrolled", careers: ["software"] }];
